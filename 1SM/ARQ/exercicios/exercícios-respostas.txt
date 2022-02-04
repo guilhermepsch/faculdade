@@ -1,0 +1,16 @@
+1  -
+2  - tela, teclado, mouse, cpu, programa, ram, rom, hard drive
+3  - ram, rom
+4  - UNIVAC I
+5  - 
+6  - 
+7  - os primeiros computadores pessoais surgiram em 1976 (apple 1)
+8  - em 1969 foi criado a Arpanet para o uso de interligação de laboratórios de pesquisa
+9  - 
+10 - 
+11 - 
+12 - a partir da década de 1990.
+13 - 
+14 - 
+15 - 
+16 - O nome do modelo de carro voador da Embraer é eVTOL, e as pistas de pouso se chamam vertiportos.
