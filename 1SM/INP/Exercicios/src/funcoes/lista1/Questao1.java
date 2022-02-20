@@ -1,4 +1,4 @@
-package lista1;
+package funcoes.lista1;
 
 import java.util.Scanner;
 
@@ -17,9 +17,9 @@ public class Questao1 {
 		
 		double volume = calculaVolume(raio);
 		
-		System.out.println("O volume calculado é: " + volume);
+		System.out.println("O volume calculado ï¿½: " + volume);
 */
-		System.out.println("O volume calculado é: " + calculaVolume(3));
+		System.out.println("O volume calculado ï¿½: " + calculaVolume(3));
 	}
 
 }

@@ -1,4 +1,4 @@
-package funcoes;
+package funcoes.lista1;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
