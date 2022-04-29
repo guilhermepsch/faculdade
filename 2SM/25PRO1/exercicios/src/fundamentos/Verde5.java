@@ -4,7 +4,8 @@ import java.util.*;
 
 public class Verde5 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         Scanner scan = new Scanner(System.in);
 
@@ -29,27 +30,31 @@ public class Verde5 {
                 double lado1 = scan.nextDouble();
                 double lado2 = scan.nextDouble();
                 double lado3 = scan.nextDouble();
-                area = areaTriangulo(lado1,lado2,lado3);
+                area = areaTriangulo(lado1, lado2, lado3);
                 break;
         }
         System.out.printf("%.2f", area);
     }
 
-    public static double areaQuadrado(double lado) {
+    public static double areaQuadrado(double lado)
+    {
         return Math.pow(lado, 2);
     }
 
-    public static double areaRetangulo(double base, double altura) {
+    public static double areaRetangulo(double base, double altura)
+    {
         return base * altura;
     }
 
-    public static double areaCirculo(double raio) {
+    public static double areaCirculo(double raio)
+    {
         return Math.PI * (Math.pow(raio, 2));
     }
 
-    public static double areaTriangulo(double lado1, double lado2, double lado3) {
-        double s = (lado1 + lado2 + lado3)/2;
-        return Math.sqrt(s*(s-lado1)*(s-lado2)*(s-lado3));
+    public static double areaTriangulo(double lado1, double lado2, double lado3)
+    {
+        double s = (lado1 + lado2 + lado3) / 2;
+        return Math.sqrt(s * (s - lado1) * (s - lado2) * (s - lado3));
     }
 
 }
