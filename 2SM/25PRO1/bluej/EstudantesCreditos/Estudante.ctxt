@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Estudante
+comment1.params=matricula
+comment1.target=Estudante(int)
+comment2.params=
+comment2.target=java.lang.String\ getNome()
+comment3.params=
+comment3.target=int\ getMatricula()
+comment4.params=
+comment4.target=int\ getCreditos()
+comment5.params=nome
+comment5.target=boolean\ setNome(java.lang.String)
+comment6.params=creditos
+comment6.target=boolean\ adicionaCreditos(int)
+comment7.params=
+comment7.target=java.lang.String\ getLogin()
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

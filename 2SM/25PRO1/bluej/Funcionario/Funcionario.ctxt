@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Funcionario
+comment1.params=
+comment1.target=java.lang.String\ getNome()
+comment10.params=
+comment10.target=double\ getDescontoInss()
+comment11.params=
+comment11.target=double\ getDescontoIr()
+comment12.params=
+comment12.target=double\ getSalarioLiq()
+comment2.params=
+comment2.target=float\ getHoras()
+comment3.params=
+comment3.target=double\ getSalario()
+comment4.params=
+comment4.target=int\ getDepend()
+comment5.params=nome
+comment5.target=boolean\ setNome(java.lang.String)
+comment6.params=horas
+comment6.target=boolean\ setHoras(float)
+comment7.params=salario
+comment7.target=boolean\ setSalario(double)
+comment8.params=depend
+comment8.target=boolean\ setDepend(int)
+comment9.params=
+comment9.target=double\ getSalarioBru()
+numComments=13

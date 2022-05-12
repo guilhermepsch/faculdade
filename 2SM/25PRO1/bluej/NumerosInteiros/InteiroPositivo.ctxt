@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=InteiroPositivo
+comment1.params=
+comment1.target=int\ getInteiro()
+comment2.params=inteiro
+comment2.target=boolean\ setInteiro(int)
+comment3.params=
+comment3.target=boolean\ verificaImpar()
+comment4.params=
+comment4.target=void\ verificaDivisores()
+comment5.params=
+comment5.target=int\ realizaFatorial()
+comment6.params=
+comment6.target=double\ calculaH()
+comment7.params=
+comment7.target=double\ calculaP()
+comment8.params=valor
+comment8.target=int\ fat(int)
+comment9.params=
+comment9.target=double\ raiz()
+numComments=10

@@ -13,7 +13,7 @@ public class Quadrado {
     private int x; // A posição X do quadrado na tela
     private int y; // A posição Y do quadrado na tela
 
-    public Quadrado(int x, int y, String cor, int lado)
+    public Quadrado(String cor, int lado)
     {
         this.x = x;
         this.y = y;

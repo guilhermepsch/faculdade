@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Triangulo
 comment0.text=\r\n\ Um\ tri\u00E2ngulo\ que\ pode\ ser\ manipulado\ e\ se\ desenha\ em\ uma\ tela.\r\n\ \r\n\ Adaptado\ do\ exemplo\ originalmente\ publicado\ no\ livro\:\r\n\ "Programa\u00E7\u00E3o\ Orientada\ a\ Objetos\ com\ Java\:\ Uma\ Introdu\u00E7\u00E3o\ Pr\u00E1tica\ Utilizando\ o\ Blue\ J"\r\n\ dos\ autores\ Michael\ K\u00F6lling\ and\ David\ J.\ Barnes.\r\n
-comment1.params=x\ y\ cor\ base\ altura
-comment1.target=Triangulo(int,\ int,\ java.lang.String,\ int,\ int)
+comment1.params=cor\ base\ altura
+comment1.target=Triangulo(java.lang.String,\ int,\ int)
 comment10.params=base
 comment10.target=boolean\ setBase(int)
 comment11.params=altura

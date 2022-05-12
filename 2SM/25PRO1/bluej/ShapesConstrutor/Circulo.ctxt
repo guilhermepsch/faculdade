@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Circulo
 comment0.text=\r\n\ Um\ c\u00EDrculo\ que\ pode\ ser\ manipulado\ e\ se\ desenha\ em\ uma\ tela.\r\n\ \r\n\ Adaptado\ do\ exemplo\ originalmente\ publicado\ no\ livro\:\r\n\ "Programa\u00E7\u00E3o\ Orientada\ a\ Objetos\ com\ Java\:\ Uma\ Introdu\u00E7\u00E3o\ Pr\u00E1tica\ Utilizando\ o\ Blue\ J"\r\n\ dos\ autores\ Michael\ K\u00F6lling\ and\ David\ J.\ Barnes.\r\n
-comment1.params=cor\ diametro\ x\ y
-comment1.target=Circulo(java.lang.String,\ int,\ int,\ int)
+comment1.params=cor\ diametro
+comment1.target=Circulo(java.lang.String,\ int)
 comment10.params=distancia
 comment10.target=void\ moverHorizontal(int)
 comment10.text=\r\n\ Move\ o\ c\u00EDrculo\ horizontalmente\ por\ uma\ 'dist\u00E2ncia'\ em\ pixels.\r\n\ \r\n\ @param\ distancia\ a\ quantidade\ de\ pixels\ para\ mover\ horizontalmente.\ \r\n\ \ \ \ \ \ \ \ \ \ Se\ for\ um\ valor\ positivo,\ move\ para\ a\ direita.\ \r\n\ \ \ \ \ \ \ \ \ \ Se\ for\ um\ valor\ negativo,\ move\ para\ a\ esquerda.\r\n

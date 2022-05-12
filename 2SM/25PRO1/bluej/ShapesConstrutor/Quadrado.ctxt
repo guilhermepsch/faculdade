@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Quadrado
 comment0.text=\r\n\ Um\ quadrado\ que\ pode\ ser\ manipulado\ e\ se\ desenha\ em\ uma\ tela.\r\n\ \r\n\ Adaptado\ do\ exemplo\ originalmente\ publicado\ no\ livro\:\r\n\ "Programa\u00E7\u00E3o\ Orientada\ a\ Objetos\ com\ Java\:\ Uma\ Introdu\u00E7\u00E3o\ Pr\u00E1tica\ Utilizando\ o\ Blue\ J"\r\n\ dos\ autores\ Michael\ K\u00F6lling\ and\ David\ J.\ Barnes.\r\n
-comment1.params=x\ y\ cor\ lado
-comment1.target=Quadrado(int,\ int,\ java.lang.String,\ int)
+comment1.params=cor\ lado
+comment1.target=Quadrado(java.lang.String,\ int)
 comment10.params=distancia
 comment10.target=void\ moverHorizontal(int)
 comment10.text=\r\n\ Move\ o\ quadrado\ horizontalmente\ por\ uma\ 'dist\u00E2ncia'\ em\ pixels.\r\n\ \r\n\ @param\ distancia\ a\ quantidade\ de\ pixels\ para\ mover\ horizontalmente.\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ Se\ for\ um\ valor\ positivo,\ move\ para\ a\ direita.\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ Se\ for\ um\ valor\ negativo,\ move\ para\ a\ esquerda.\r\n

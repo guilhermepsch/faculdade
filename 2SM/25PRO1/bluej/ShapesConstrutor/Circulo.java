@@ -14,7 +14,7 @@ public class Circulo {
     private int x; // Posição X do círculo na tela
     private int y; // Posição Y do círculo na tela 
     
-    public Circulo(String cor, int diametro, int x, int y){
+    public Circulo(String cor, int diametro){
         
         this.x = x;
         this.y = y;

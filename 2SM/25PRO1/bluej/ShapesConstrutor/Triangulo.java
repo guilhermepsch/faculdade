@@ -14,7 +14,7 @@ public class Triangulo {
     private int x; // A posição X do triângulo na tela
     private int y; // A posição Y do triângulo na tela
 
-    public Triangulo(int x, int y, String cor, int base, int altura)
+    public Triangulo(String cor, int base, int altura)
     {
         this.x = x;
         this.y = y;
