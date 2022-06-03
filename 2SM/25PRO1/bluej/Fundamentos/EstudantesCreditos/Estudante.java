@@ -44,7 +44,11 @@ public class Estudante
     
     public String getLogin()
     {
+<<<<<<< HEAD:2SM/25PRO1/bluej/Fundamentos/EstudantesCreditos/Estudante.java
         return this.nome.substring(0, 3) + Integer.toString(this.matricula).substring(this.matricula.length() - 3);
+=======
+        return this.nome.substring(0, 3) + Integer.toString(this.matricula).substring(Integer.toString(this.matricula).length() - 3);
+>>>>>>> 0e88237d433c01c6089d946c7060c01efbd87f2f:2SM/25PRO1/bluej/EstudantesCreditos/Estudante.java
     }
     
     public String toString()
