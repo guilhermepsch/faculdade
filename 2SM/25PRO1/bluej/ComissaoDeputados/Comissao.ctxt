@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Comissao
+comment1.params=titulo
+comment1.target=Comissao(java.lang.String)
+comment2.params=deputado
+comment2.target=void\ addDeputado(Deputado)
+comment3.params=titulo
+comment3.target=boolean\ setTitulo(java.lang.String)
+comment4.params=
+comment4.target=void\ imprimirDeputados()
+comment5.params=partido
+comment5.target=void\ imprimirDeputados(int)
+comment6.params=estado
+comment6.target=void\ imprimirDeputados(java.lang.String)
+comment7.params=
+comment7.target=void\ imprimirQtdPorPartido()
+numComments=8

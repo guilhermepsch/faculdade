@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Celular
+comment1.params=numero
+comment1.target=Celular(java.lang.String)
+comment2.params=valor
+comment2.target=boolean\ setCobranca(double)
+comment3.params=valor
+comment3.target=boolean\ addCredito(double)
+comment4.params=numero\ minutos
+comment4.target=boolean\ registraLigacao(java.lang.String,\ int)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

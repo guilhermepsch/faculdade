@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=GrupoWhatsapp
+comment1.params=nome\ primeiroParticipante
+comment1.target=GrupoWhatsapp(java.lang.String,\ Participante)
+comment2.params=participante
+comment2.target=void\ addParticipante(Participante)
+comment3.params=participante
+comment3.target=void\ delParticipante(Participante)
+comment4.params=
+comment4.target=void\ imprimeParticipantes()
+numComments=5

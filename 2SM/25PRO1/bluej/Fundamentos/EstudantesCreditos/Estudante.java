@@ -44,7 +44,7 @@ public class Estudante
     
     public String getLogin()
     {
-        return this.nome.substring(0, 3) + Integer.toString(this.matricula).substring(0, 3);
+        return this.nome.substring(0, 3) + Integer.toString(this.matricula).substring(this.matricula.length() - 3);
     }
     
     public String toString()
