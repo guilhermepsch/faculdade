@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Clube
+comment1.params=nome\ cidade
+comment1.target=Clube(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=void\ imprimirSocios()
+comment3.params=
+comment3.target=void\ imprimirSociosMenoresDeIdade()
+comment4.params=
+comment4.target=double\ getIdadeMediaSocios()
+comment5.params=
+comment5.target=void\ imprimirSociosMaiorQueIdadeMedia()
+comment6.params=
+comment6.target=double\ getArrecadacaoMensalidade()
+comment7.params=matricula
+comment7.target=boolean\ removeSocio(int)
+numComments=8

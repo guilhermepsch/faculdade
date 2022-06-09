@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Banco
+comment1.params=codigo\ nome
+comment1.target=Banco(int,\ java.lang.String)
+comment2.params=nome
+comment2.target=boolean\ setNome(java.lang.String)
+comment3.params=
+comment3.target=void\ imprimeAgencia()
+comment4.params=cidade
+comment4.target=void\ imprimeAgencia(java.lang.String)
+comment5.params=ano
+comment5.target=void\ imprimeAgencia(int)
+comment6.params=numero
+comment6.target=Agencia\ getAgencia(int)
+numComments=7

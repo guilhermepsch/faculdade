@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Funcionario
+comment1.params=matricula
+comment1.target=Funcionario(int)
+comment2.params=nome
+comment2.target=boolean\ setNome(java.lang.String)
+comment3.params=salario
+comment3.target=boolean\ setSalarioMensal(double)
+comment4.params=
+comment4.target=int\ getMatricula()
+comment5.params=
+comment5.target=java.lang.String\ getNome()
+comment6.params=
+comment6.target=double\ getSalarioMensal()
+numComments=7
