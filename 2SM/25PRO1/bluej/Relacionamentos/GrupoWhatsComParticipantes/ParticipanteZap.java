@@ -1,9 +1,9 @@
-public class Participante {
+public class ParticipanteZap {
     
     private String nome;
     private int telefone;
     
-    public Participante (String nome, int telefone)
+    public ParticipanteZap (String nome, int telefone)
     {
         this.nome = nome;
         this.telefone = telefone;

@@ -3,12 +3,12 @@ public class Main
     
     public static void main (String[] args)
     {
-        
-        Participante participante1 = new Participante("Nome 1", 111111111);
-        Participante participante2 = new Participante("Nome 2", 222222222);
-        Participante participante3 = new Participante("Nome 3", 333333333);
-        Participante participante4 = new Participante("Nome 4", 444444444);
-        Participante participante5 = new Participante("Nome 5", 555555555);
+
+        ParticipanteZap participante1 = new ParticipanteZap("Nome 1", 111111111);
+        ParticipanteZap participante2 = new ParticipanteZap("Nome 2", 222222222);
+        ParticipanteZap participante3 = new ParticipanteZap("Nome 3", 333333333);
+        ParticipanteZap participante4 = new ParticipanteZap("Nome 4", 444444444);
+        ParticipanteZap participante5 = new ParticipanteZap("Nome 5", 555555555);
         
         GrupoWhatsapp grupo1 = new GrupoWhatsapp("Grupo 1", participante1);
         GrupoWhatsapp grupo2 = new GrupoWhatsapp("Grupo 2", participante1);

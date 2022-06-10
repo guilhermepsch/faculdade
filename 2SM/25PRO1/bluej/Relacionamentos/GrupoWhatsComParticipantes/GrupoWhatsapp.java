@@ -4,21 +4,21 @@ public class GrupoWhatsapp
 {
 
     private String nome;
-    private ArrayList<Participante> participantes;
+    private ArrayList<ParticipanteZap> participantes;
     
-    GrupoWhatsapp(String nome, Participante primeiroParticipante)
+    GrupoWhatsapp(String nome, ParticipanteZap primeiroParticipante)
     {
         this.nome = nome;
         this.participantes = new ArrayList();
         this.participantes.add(primeiroParticipante);
     }
     
-    public void addParticipante(Participante participante)
+    public void addParticipante(ParticipanteZap participante)
     {
         this.participantes.add(participante);
     }
     
-    public void delParticipante(Participante participante)
+    public void delParticipante(ParticipanteZap participante)
     {
         this.participantes.remove(participante);
     }
