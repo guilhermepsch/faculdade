@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/AgenciasBanco" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ClubeSocios" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ClubeSociosMariana" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ComissaoDeputados" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/EmpresaFuncionarios" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/GrupoWhatsComParticipantes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Livraria" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Prova2Prog" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TimesComTreinador" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TurmasComAlunos" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
