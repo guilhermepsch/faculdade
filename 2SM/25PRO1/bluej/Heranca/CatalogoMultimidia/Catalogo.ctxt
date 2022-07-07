@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Catalogo
+comment0.text=\r\n\ Representa\ um\ cat\u00E1logo\ de\ uma\ cole\u00E7\u00E3o\ de\ filmes\ e\ albums\ musicais.\r\n\ @author\ Fernando\ Santos\r\n
+comment1.params=colecionador
+comment1.target=Catalogo(java.lang.String)
+comment2.params=umAlbum
+comment2.target=void\ addAlbum(Album)
+comment3.params=umFilme
+comment3.target=void\ addFilme(Filme)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

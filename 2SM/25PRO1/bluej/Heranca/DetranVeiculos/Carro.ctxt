@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Carro
+comment1.params=modelo\ ano\ placa\ valor\ portas\ alugado
+comment1.target=Carro(java.lang.String,\ int,\ java.lang.String,\ double,\ int,\ boolean)
+comment2.params=
+comment2.target=int\ getPortas()
+comment3.params=portas
+comment3.target=boolean\ setPortas(int)
+comment4.params=
+comment4.target=boolean\ getAlugado()
+comment5.params=alugado
+comment5.target=boolean\ setAlugado(boolean)
+comment6.params=
+comment6.target=double\ calculaIpva()
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8

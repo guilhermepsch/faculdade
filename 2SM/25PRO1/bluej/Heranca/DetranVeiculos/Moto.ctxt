@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Moto
+comment1.params=modelo\ ano\ placa\ valor\ cilindradas
+comment1.target=Moto(java.lang.String,\ int,\ java.lang.String,\ double,\ int)
+comment2.params=
+comment2.target=int\ getCilindradas()
+comment3.params=cilindradas
+comment3.target=boolean\ setCilindradas(int)
+comment4.params=
+comment4.target=double\ calculaIpva()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

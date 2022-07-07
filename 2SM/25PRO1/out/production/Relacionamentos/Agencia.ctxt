@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Agencia
+comment1.params=numero\ cidade\ ano
+comment1.target=Agencia(int,\ java.lang.String,\ int)
+comment2.params=
+comment2.target=int\ getNumero()
+comment3.params=
+comment3.target=java.lang.String\ getCidade()
+comment4.params=
+comment4.target=int\ getAno()
+numComments=5

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Participante
+comment1.params=nome\ idade\ cidade
+comment1.target=Participante(java.lang.String,\ int,\ java.lang.String)
+comment2.params=cidade
+comment2.target=boolean\ setCidade(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getNome()
+comment4.params=
+comment4.target=int\ getIdade()
+comment5.params=
+comment5.target=java.lang.String\ getCidade()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

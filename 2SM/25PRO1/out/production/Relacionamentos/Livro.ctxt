@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Livro
+comment1.params=titulo\ ano\ paginas
+comment1.target=Livro(java.lang.String,\ int,\ int)
+comment2.params=autor
+comment2.target=void\ addAutor(Autor)
+comment3.params=editora
+comment3.target=boolean\ setEditora(Editora)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5
