@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=AnuncioPago
+comment1.params=produto\ valorVenda\ cidade\ estado\ dias\ valorPago
+comment1.target=AnuncioPago(java.lang.String,\ double,\ java.lang.String,\ java.lang.String,\ int,\ double)
+comment2.params=
+comment2.target=int\ getDias()
+comment3.params=
+comment3.target=double\ getValorPago()
+comment4.params=dias
+comment4.target=boolean\ setDias(int)
+comment5.params=valorPago
+comment5.target=boolean\ setValorPago(double)
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

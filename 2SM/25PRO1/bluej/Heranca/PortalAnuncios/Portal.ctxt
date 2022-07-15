@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Portal
+comment1.params=nome\ url
+comment1.target=Portal(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getNome()
+comment3.params=
+comment3.target=java.lang.String\ getUrl()
+comment4.params=nome
+comment4.target=boolean\ setNome(java.lang.String)
+comment5.params=url
+comment5.target=boolean\ setUrl(java.lang.String)
+comment6.params=anuncio
+comment6.target=void\ addAnuncio(Anuncio)
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8
