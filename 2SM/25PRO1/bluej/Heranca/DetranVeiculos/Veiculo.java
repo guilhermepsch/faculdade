@@ -1,4 +1,4 @@
-public class Veiculo
+abstract public class Veiculo
 {
     protected String modelo;
     protected int ano;
