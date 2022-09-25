@@ -3,9 +3,9 @@ package exercicio.universidade;
 public abstract class Pessoa {
   
   private static int id = 0;
-  private String nome;
-  private String dataNascimento;
-  private String cpf;
+  protected String nome;
+  protected String dataNascimento;
+  protected String cpf;
 
   public Pessoa (String nome, String dataNascimento, String cpf)
   {
@@ -29,11 +29,11 @@ public abstract class Pessoa {
    return this.cpf;
   }
 
-  public int getId(){
+  protected static int getId(){
     return id;
   }
 
-  public void incrementId()
+  protected static void incrementId()
   {
     id++;
   }
