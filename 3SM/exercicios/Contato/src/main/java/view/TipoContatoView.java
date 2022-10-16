@@ -9,9 +9,19 @@ package view;
  * @author Zeke
  */
 public class TipoContatoView extends FormPadrao {
- 
-    public TipoContatoView(){
+
+    public TipoContatoView() {
         this.setTitle("Cadastro de Tipo de Contato");
     }
-    
+
+    @Override
+    public void inicializarComponentes() {
+
+    }
+
+    @Override
+    public void salvarView() {
+
+    }
+
 }
