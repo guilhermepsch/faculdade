@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
@@ -9,13 +14,32 @@ package view;
  * @author Zeke
  */
 abstract public class BaseForm extends javax.swing.JFrame {
-    
+
+    private BaseGrid grid;
+
+    abstract public void initComponentsChild();
+
+    abstract public void salvar();
+
     /**
      * Creates new form FormPadrao
      */
-    public BaseForm() {
+    public BaseForm(BaseGrid grid) {
+        this.grid = grid;
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        enableGridFrameOnClose(grid);
         initComponents();
+        initComponentsChild();
         jtfId.setEnabled(false);
+    }
+
+    private void enableGridFrameOnClose(BaseGrid grid) {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                grid.setEnabled(true);
+            }
+        });
     }
 
     /**
@@ -34,9 +58,9 @@ abstract public class BaseForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jtfId = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jtfDescricao = new javax.swing.JTextField();
-        jpnBotoes1 = new javax.swing.JPanel();
-        jbFechar1 = new javax.swing.JButton();
+        jtfNome = new javax.swing.JTextField();
+
+        setResizable(false);
 
         jbCancelar.setText("Cancelar");
         jbCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,21 +97,16 @@ abstract public class BaseForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jpnFormulario.setPreferredSize(new java.awt.Dimension(600, 225));
+
         jLabel1.setText("ID");
 
-        jtfId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfIdActionPerformed(evt);
-            }
-        });
+        jtfId.setEditable(false);
+        jtfId.setPreferredSize(new java.awt.Dimension(64, 25));
 
         jLabel2.setText("Nome");
 
-        jtfDescricao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfDescricaoActionPerformed(evt);
-            }
-        });
+        jtfNome.setPreferredSize(new java.awt.Dimension(64, 25));
 
         javax.swing.GroupLayout jpnFormularioLayout = new javax.swing.GroupLayout(jpnFormulario);
         jpnFormulario.setLayout(jpnFormularioLayout);
@@ -97,12 +116,12 @@ abstract public class BaseForm extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jpnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                    .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jpnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jpnFormularioLayout.setVerticalGroup(
             jpnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,50 +133,24 @@ abstract public class BaseForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(179, Short.MAX_VALUE))
-        );
-
-        jbFechar1.setText("Fechar");
-        jbFechar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbFechar1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jpnBotoes1Layout = new javax.swing.GroupLayout(jpnBotoes1);
-        jpnBotoes1.setLayout(jpnBotoes1Layout);
-        jpnBotoes1Layout.setHorizontalGroup(
-            jpnBotoes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnBotoes1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbFechar1)
-                .addContainerGap())
-        );
-        jpnBotoes1Layout.setVerticalGroup(
-            jpnBotoes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jbFechar1)
+                    .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpnFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jpnFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(jpnBotoes1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jpnBotoes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpnFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jpnBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -165,36 +158,25 @@ abstract public class BaseForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
-
+        this.salvar();
+        grid.updateTable();
+        grid.setEnabled(true);
+        this.dispose();
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
-
+        grid.setEnabled(true);
+        this.dispose();
     }//GEN-LAST:event_jbCancelarActionPerformed
-
-    private void jtfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfIdActionPerformed
-
-    private void jtfDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDescricaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfDescricaoActionPerformed
-
-    private void jbFechar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFechar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbFechar1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jbCancelar;
-    private javax.swing.JButton jbFechar1;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JPanel jpnBotoes;
-    private javax.swing.JPanel jpnBotoes1;
     protected javax.swing.JPanel jpnFormulario;
-    protected javax.swing.JTextField jtfDescricao;
     protected javax.swing.JTextField jtfId;
+    protected javax.swing.JTextField jtfNome;
     // End of variables declaration//GEN-END:variables
 }

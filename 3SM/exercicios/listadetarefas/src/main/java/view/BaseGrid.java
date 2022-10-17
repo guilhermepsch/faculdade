@@ -4,17 +4,57 @@
  */
 package view;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author guilh
  */
-public class BaseGrid extends javax.swing.JFrame {
+abstract public class BaseGrid extends javax.swing.JFrame {
+
+    abstract public void incluir();
+
+    abstract public void alterar(int id);
+
+    abstract public void excluir(int id);
+
+    abstract public void updateTable();
+
+    DefaultTableModel tableModel;
+
+    public void setColumns() {
+        tableModel = new DefaultTableModel();
+        tableModel.addColumn("Id");
+        tableModel.addColumn("Nome");
+    }
 
     /**
      * Creates new form BaseGrid
+     *
+     * @param main
      */
-    public BaseGrid() {
+    public BaseGrid(JFrame main) {
         initComponents();
+        setColumns();
+        enableMainFrameOnClose(main);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jtContent.setCellSelectionEnabled(false);
+        jtContent.setRowSelectionAllowed(true);
+        jtContent.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        updateTable();
+    }
+
+    private void enableMainFrameOnClose(JFrame main) {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                main.setEnabled(true);
+            }
+        });
     }
 
     /**
@@ -26,13 +66,36 @@ public class BaseGrid extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtConteudo1 = new javax.swing.JTable();
         jpMain = new javax.swing.JPanel();
         jpHeader = new javax.swing.JPanel();
         jlConsulta = new javax.swing.JLabel();
         jtfConsulta = new javax.swing.JTextField();
+        jpActions = new javax.swing.JPanel();
+        jbIncluir = new javax.swing.JButton();
+        jbAlterar = new javax.swing.JButton();
+        jbExcluir = new javax.swing.JButton();
+        jpContent = new javax.swing.JPanel();
+        jspContent = new javax.swing.JScrollPane();
+        jtContent = new javax.swing.JTable();
+
+        jtConteudo1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nome"
+            }
+        ));
+        jtConteudo1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jtConteudo1);
+        if (jtConteudo1.getColumnModel().getColumnCount() > 0) {
+            jtConteudo1.getColumnModel().getColumn(0).setResizable(false);
+            jtConteudo1.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 300));
         setResizable(false);
 
         jlConsulta.setText("Consulta");
@@ -42,11 +105,11 @@ public class BaseGrid extends javax.swing.JFrame {
         jpHeaderLayout.setHorizontalGroup(
             jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpHeaderLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jlConsulta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addComponent(jtfConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         jpHeaderLayout.setVerticalGroup(
             jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -55,7 +118,75 @@ public class BaseGrid extends javax.swing.JFrame {
                 .addGroup(jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlConsulta)
                     .addComponent(jtfConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jbIncluir.setText("Incluir");
+        jbIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbIncluirActionPerformed(evt);
+            }
+        });
+
+        jbAlterar.setText("Alterar");
+        jbAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAlterarActionPerformed(evt);
+            }
+        });
+
+        jbExcluir.setText("Excluir");
+        jbExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExcluirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpActionsLayout = new javax.swing.GroupLayout(jpActions);
+        jpActions.setLayout(jpActionsLayout);
+        jpActionsLayout.setHorizontalGroup(
+            jpActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpActionsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbIncluir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbAlterar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbExcluir)
+                .addContainerGap(366, Short.MAX_VALUE))
+        );
+        jpActionsLayout.setVerticalGroup(
+            jpActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpActionsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbAlterar)
+                    .addComponent(jbIncluir)
+                    .addComponent(jbExcluir))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        jtContent.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jtContent.setCellSelectionEnabled(true);
+        jtContent.getTableHeader().setReorderingAllowed(false);
+        jspContent.setViewportView(jtContent);
+
+        javax.swing.GroupLayout jpContentLayout = new javax.swing.GroupLayout(jpContent);
+        jpContent.setLayout(jpContentLayout);
+        jpContentLayout.setHorizontalGroup(
+            jpContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jspContent)
+        );
+        jpContentLayout.setVerticalGroup(
+            jpContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jspContent, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jpMainLayout = new javax.swing.GroupLayout(jpMain);
@@ -63,12 +194,17 @@ public class BaseGrid extends javax.swing.JFrame {
         jpMainLayout.setHorizontalGroup(
             jpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jpHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpActions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpMainLayout.setVerticalGroup(
             jpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMainLayout.createSequentialGroup()
                 .addComponent(jpHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 247, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpActions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,51 +215,48 @@ public class BaseGrid extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BaseGrid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BaseGrid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BaseGrid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BaseGrid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
+        int id = Integer.parseInt(String.valueOf(jtContent.getValueAt(jtContent.getSelectedRow(), 0)));
+        this.excluir(id);
+        this.updateTable();
+    }//GEN-LAST:event_jbExcluirActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BaseGrid().setVisible(true);
-            }
-        });
+    private void jbIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIncluirActionPerformed
+        incluir();
+    }//GEN-LAST:event_jbIncluirActionPerformed
+
+    private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
+        int id = Integer.parseInt(String.valueOf(jtContent.getValueAt(jtContent.getSelectedRow(), 0)));
+        this.alterar(id);
+    }//GEN-LAST:event_jbAlterarActionPerformed
+
+    public void clearTable() {
+        DefaultTableModel dm = (DefaultTableModel) jtContent.getModel();
+        int rowCount = dm.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dm.removeRow(i);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane2;
+    protected javax.swing.JButton jbAlterar;
+    protected javax.swing.JButton jbExcluir;
+    protected javax.swing.JButton jbIncluir;
     private javax.swing.JLabel jlConsulta;
+    private javax.swing.JPanel jpActions;
+    private javax.swing.JPanel jpContent;
     private javax.swing.JPanel jpHeader;
     private javax.swing.JPanel jpMain;
-    private javax.swing.JTextField jtfConsulta;
+    private javax.swing.JScrollPane jspContent;
+    protected javax.swing.JTable jtContent;
+    private javax.swing.JTable jtConteudo1;
+    protected javax.swing.JTextField jtfConsulta;
     // End of variables declaration//GEN-END:variables
 }

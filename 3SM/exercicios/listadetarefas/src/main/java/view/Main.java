@@ -4,20 +4,21 @@
  */
 package view;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author guilh
  */
 public class Main extends javax.swing.JFrame {
-
-    private boolean isSomethingOpen = false;
-    
+        
     /**
      * Creates new form Main
      */
     public Main() {
-        this.setResizable(false);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         initComponents();
     }
 
@@ -36,9 +37,9 @@ public class Main extends javax.swing.JFrame {
         jpEspecifico = new javax.swing.JPanel();
         jpSpecificOptions = new javax.swing.JPanel();
         jlGeralTitle1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jbPessoas = new javax.swing.JButton();
+        jbListas = new javax.swing.JButton();
+        jbTarefa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("HOUSR");
@@ -103,16 +104,21 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Pessoas");
-
-        jButton2.setText("Listas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbPessoas.setText("Pessoas");
+        jbPessoas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbPessoasActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Tarefas");
+        jbListas.setText("Listas");
+        jbListas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbListasActionPerformed(evt);
+            }
+        });
+
+        jbTarefa.setText("Tarefas");
 
         javax.swing.GroupLayout jpEspecificoLayout = new javax.swing.GroupLayout(jpEspecifico);
         jpEspecifico.setLayout(jpEspecificoLayout);
@@ -121,11 +127,11 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jpSpecificOptions, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jpEspecificoLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jButton1)
+                .addComponent(jbPessoas)
                 .addGap(93, 93, 93)
-                .addComponent(jButton2)
+                .addComponent(jbListas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jbTarefa)
                 .addGap(48, 48, 48))
         );
         jpEspecificoLayout.setVerticalGroup(
@@ -134,9 +140,9 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jpSpecificOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(jpEspecificoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jbPessoas)
+                    .addComponent(jbListas)
+                    .addComponent(jbTarefa))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -158,18 +164,16 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbListasActionPerformed
 
-    public boolean isIsSomethingOpen() {
-        return isSomethingOpen;
-    }
+    private void jbPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPessoasActionPerformed
+        PessoaGrid tela = new PessoaGrid(this);
+        tela.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_jbPessoasActionPerformed
 
-    public void setIsSomethingOpen(boolean isSomethingOpen) {
-        this.isSomethingOpen = isSomethingOpen;
-    }
-    
     /**
      * @param args the command line arguments
      */
@@ -206,9 +210,9 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jbListas;
+    private javax.swing.JButton jbPessoas;
+    private javax.swing.JButton jbTarefa;
     private javax.swing.JLabel jlGeralTitle;
     private javax.swing.JLabel jlGeralTitle1;
     private javax.swing.JPanel jpEspecifico;
