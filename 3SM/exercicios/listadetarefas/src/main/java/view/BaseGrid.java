@@ -7,6 +7,7 @@ package view;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -224,6 +225,7 @@ abstract public class BaseGrid extends javax.swing.JFrame {
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
         int id = Integer.parseInt(String.valueOf(jtContent.getValueAt(jtContent.getSelectedRow(), 0)));
         this.excluir(id);
+        JOptionPane.showMessageDialog(this, "Operação realizada com sucesso");
         this.updateTable();
     }//GEN-LAST:event_jbExcluirActionPerformed
 

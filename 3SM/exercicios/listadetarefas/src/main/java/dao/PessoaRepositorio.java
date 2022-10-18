@@ -37,10 +37,14 @@ public class PessoaRepositorio implements InterfaceDao {
 
     @Override
     public void remove(int id) {
+        Pessoa seraRemovido = null;
         for (Pessoa p : pessoas) {
             if (p.getId() == id) {
-                pessoas.remove(p);
+                seraRemovido = p;
             }
+        }
+        if (seraRemovido != null){
+            pessoas.remove(seraRemovido);
         }
     }
 
