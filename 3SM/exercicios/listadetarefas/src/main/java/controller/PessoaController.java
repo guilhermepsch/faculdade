@@ -22,8 +22,7 @@ public class PessoaController implements InterfaceController {
         if (args[0].equals("") || args[0] == null) {
             this.add(args);
         } else {
-            System.out.println(args[0] + "teste");
-            args[0] = Integer.parseInt(String.valueOf(args[0]));
+            args[0] = Integer.valueOf(String.valueOf(args[0]));
             this.update(args);
         }
     }
@@ -52,8 +51,8 @@ public class PessoaController implements InterfaceController {
     }
 
     @Override
-    public Object get(int id) {
-        return pessoaRepo.get(id);
+    public ArrayList<Object> get(String text, String param) {
+        return pessoaRepo.get(text, param);
     }
 
     public Pessoa validate(Object[] args) throws Exception {
@@ -84,5 +83,10 @@ public class PessoaController implements InterfaceController {
         }
 
         return new Pessoa(id, nome, idade, cpf, celular);
+    }
+
+    @Override
+    public Object get(int id) {
+        return pessoaRepo.get(id);
     }
 }

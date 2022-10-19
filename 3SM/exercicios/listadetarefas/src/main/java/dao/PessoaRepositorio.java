@@ -43,24 +43,59 @@ public class PessoaRepositorio implements InterfaceDao {
                 seraRemovido = p;
             }
         }
-        if (seraRemovido != null){
+        if (seraRemovido != null) {
             pessoas.remove(seraRemovido);
         }
+    }
+
+    @Override
+    public ArrayList<Object> get(String text, String param) {
+        ArrayList<Object> newList = new ArrayList<Object>();
+        for (Pessoa p : pessoas) {
+            switch (param) {
+                case "Nome":
+                    if (p.getNome().contains(text)) {
+                        newList.add(p);
+                    }
+                    break;
+                case "Idade":
+                    if (p.getIdade() == Integer.valueOf(text)) {
+                        newList.add(p);
+                    }
+                    break;
+                case "Cpf":
+                    if (p.getCpf().contains(text)) {
+                        newList.add(p);
+                    }
+                    break;
+                case "Celular":
+                    if (p.getCelular().contains(text)) {
+                        newList.add(p);
+                    }
+                    break;
+                default:
+                    if (p.getId() == Integer.valueOf(text)) {
+                        newList.add(p);
+                    }
+                    break;
+            }
+        }
+        return newList;
+    }
+
+    @Override
+    public ArrayList<Pessoa> get() {
+        return pessoas;
     }
 
     @Override
     public Object get(int id) {
         for (Pessoa p : pessoas) {
             if (p.getId() == id) {
-                return (Object) p;
+                return p;
             }
         }
         return null;
-    }
-
-    @Override
-    public ArrayList<Pessoa> get() {
-        return pessoas;
     }
 
 }

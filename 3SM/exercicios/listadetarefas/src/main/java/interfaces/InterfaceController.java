@@ -21,7 +21,9 @@ public interface InterfaceController {
     public void remove(int id);
 
     public ArrayList<?> get();
-
+    
     public Object get(int id);
+
+    public Object get(String text, String param);
 
 }

@@ -6,9 +6,13 @@ package view;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import javax.script.Bindings;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,14 +27,25 @@ abstract public class BaseGrid extends javax.swing.JFrame {
 
     abstract public void excluir(int id);
 
+    abstract public ArrayList<Object> handleConsulta();
+
     abstract public void updateTable();
+
+    abstract public void updateTable(ArrayList<Object> list);
+
+    abstract public void createTableSorting();
+
+    abstract public void setComboBoxItems();
 
     DefaultTableModel tableModel;
 
-    public void setColumns() {
+    protected void setColumns() {
         tableModel = new DefaultTableModel();
         tableModel.addColumn("Id");
         tableModel.addColumn("Nome");
+        jtContent.setCellSelectionEnabled(false);
+        jtContent.setRowSelectionAllowed(true);
+        jtContent.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     /**
@@ -43,9 +58,7 @@ abstract public class BaseGrid extends javax.swing.JFrame {
         setColumns();
         enableMainFrameOnClose(main);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        jtContent.setCellSelectionEnabled(false);
-        jtContent.setRowSelectionAllowed(true);
-        jtContent.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        setComboBoxItems();
         updateTable();
     }
 
@@ -73,6 +86,8 @@ abstract public class BaseGrid extends javax.swing.JFrame {
         jpHeader = new javax.swing.JPanel();
         jlConsulta = new javax.swing.JLabel();
         jtfConsulta = new javax.swing.JTextField();
+        jcbSelectItemConsulta = new javax.swing.JComboBox<>();
+        jbConsultar = new javax.swing.JButton();
         jpActions = new javax.swing.JPanel();
         jbIncluir = new javax.swing.JButton();
         jbAlterar = new javax.swing.JButton();
@@ -101,6 +116,13 @@ abstract public class BaseGrid extends javax.swing.JFrame {
 
         jlConsulta.setText("Consulta");
 
+        jbConsultar.setText("Pesquisar");
+        jbConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbConsultarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpHeaderLayout = new javax.swing.GroupLayout(jpHeader);
         jpHeader.setLayout(jpHeaderLayout);
         jpHeaderLayout.setHorizontalGroup(
@@ -110,7 +132,11 @@ abstract public class BaseGrid extends javax.swing.JFrame {
                 .addComponent(jlConsulta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jcbSelectItemConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
         jpHeaderLayout.setVerticalGroup(
             jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +144,9 @@ abstract public class BaseGrid extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlConsulta)
-                    .addComponent(jtfConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbSelectItemConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbConsultar))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -223,6 +251,10 @@ abstract public class BaseGrid extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
+        if (jtContent.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(this, "É necessário selecionar um registro para realizar esta operação.");
+            return;
+        }
         int id = Integer.parseInt(String.valueOf(jtContent.getValueAt(jtContent.getSelectedRow(), 0)));
         this.excluir(id);
         JOptionPane.showMessageDialog(this, "Operação realizada com sucesso");
@@ -234,9 +266,21 @@ abstract public class BaseGrid extends javax.swing.JFrame {
     }//GEN-LAST:event_jbIncluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
+        if (jtContent.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(this, "É necessário selecionar um registro para realizar esta operação.");
+            return;
+        }
         int id = Integer.parseInt(String.valueOf(jtContent.getValueAt(jtContent.getSelectedRow(), 0)));
         this.alterar(id);
     }//GEN-LAST:event_jbAlterarActionPerformed
+
+    private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
+        if (jtfConsulta.equals("")){
+            this.updateTable();
+            return;
+        }
+        updateTable(handleConsulta());
+    }//GEN-LAST:event_jbConsultarActionPerformed
 
     public void clearTable() {
         DefaultTableModel dm = (DefaultTableModel) jtContent.getModel();
@@ -249,8 +293,10 @@ abstract public class BaseGrid extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;
     protected javax.swing.JButton jbAlterar;
+    private javax.swing.JButton jbConsultar;
     protected javax.swing.JButton jbExcluir;
     protected javax.swing.JButton jbIncluir;
+    protected javax.swing.JComboBox<String> jcbSelectItemConsulta;
     private javax.swing.JLabel jlConsulta;
     private javax.swing.JPanel jpActions;
     private javax.swing.JPanel jpContent;
@@ -261,4 +307,5 @@ abstract public class BaseGrid extends javax.swing.JFrame {
     private javax.swing.JTable jtConteudo1;
     protected javax.swing.JTextField jtfConsulta;
     // End of variables declaration//GEN-END:variables
+
 }
