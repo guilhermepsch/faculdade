@@ -24,6 +24,6 @@ public interface InterfaceController {
     
     public Object get(int id);
 
-    public Object get(String text, String param);
+    public ArrayList<Object> get(String text, String param);
 
 }

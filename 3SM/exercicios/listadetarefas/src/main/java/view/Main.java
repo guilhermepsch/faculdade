@@ -165,7 +165,9 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListasActionPerformed
-        // TODO add your handling code here:
+        ListaDeTarefaGrid tela = new ListaDeTarefaGrid(this);
+        tela.setVisible(true);
+        this.setEnabled(false);
     }//GEN-LAST:event_jbListasActionPerformed
 
     private void jbPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPessoasActionPerformed

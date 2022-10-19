@@ -6,7 +6,6 @@ package dao;
 
 import interfaces.InterfaceDao;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import model.Pessoa;
 
 /**
@@ -50,34 +49,35 @@ public class PessoaRepositorio implements InterfaceDao {
 
     @Override
     public ArrayList<Object> get(String text, String param) {
-        ArrayList<Object> newList = new ArrayList<Object>();
+        ArrayList<Object> newList = new ArrayList<>();
         for (Pessoa p : pessoas) {
             switch (param) {
-                case "Nome":
+                case "Nome" -> {
                     if (p.getNome().contains(text)) {
                         newList.add(p);
                     }
-                    break;
-                case "Idade":
-                    if (p.getIdade() == Integer.valueOf(text)) {
+                }
+                case "Idade" -> {
+                    if (p.getIdade() == Integer.parseInt(text)) {
                         newList.add(p);
                     }
-                    break;
-                case "Cpf":
+                }
+                case "Cpf" -> {
                     if (p.getCpf().contains(text)) {
                         newList.add(p);
                     }
-                    break;
-                case "Celular":
+                }
+                case "Celular" -> {
                     if (p.getCelular().contains(text)) {
                         newList.add(p);
                     }
-                    break;
-                default:
-                    if (p.getId() == Integer.valueOf(text)) {
+                }
+                default -> {
+                    if (p.getId() == Integer.parseInt(text)) {
                         newList.add(p);
                     }
                     break;
+                }
             }
         }
         return newList;
@@ -92,6 +92,15 @@ public class PessoaRepositorio implements InterfaceDao {
     public Object get(int id) {
         for (Pessoa p : pessoas) {
             if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public Pessoa getByIndexNome(String check) {
+        for (Pessoa p : pessoas) {
+            if (check.equals(p.getId() + " - " + p.getNome())) {
                 return p;
             }
         }

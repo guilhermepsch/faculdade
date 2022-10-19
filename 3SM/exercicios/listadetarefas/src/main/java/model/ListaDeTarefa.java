@@ -4,19 +4,20 @@
  */
 package model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
  * @author guilh
  */
-class ListaDeTarefa {
+public class ListaDeTarefa {
 
     private int id;
     private String nome;
     private Pessoa pessoa;
     private List<Tarefa> tarefas;
-    private boolean status;
 
     public ListaDeTarefa(int id, String nome, Pessoa pessoa) {
         this.id = id;
@@ -48,14 +49,6 @@ class ListaDeTarefa {
         this.pessoa = pessoa;
     }
 
-    public boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
     public List<Tarefa> getTarefas() {
         return tarefas;
     }
@@ -68,4 +61,13 @@ class ListaDeTarefa {
     public String toString() {
         return "ListaDeTarefa{" + "id=" + id + ", nome=" + nome + ", tarefas=" + tarefas + '}';
     }
+    
+    public static Set<String> getHashAttributeIds(){
+        Set<String> atts = new HashSet<String>();
+        atts.add("Id");
+        atts.add("Nome");
+        atts.add("Pessoa Id");
+        atts.add("Pessoa Nome");
+        return atts;
+    } 
 }

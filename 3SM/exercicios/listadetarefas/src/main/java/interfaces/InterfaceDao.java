@@ -15,6 +15,6 @@ public interface InterfaceDao {
     public void add(Object obj);
     public void remove(int id);
     public ArrayList<?> get();
-    public Object get(String text, String param);
+    public ArrayList<Object> get(String text, String param);
     public Object get(int id);
 }
