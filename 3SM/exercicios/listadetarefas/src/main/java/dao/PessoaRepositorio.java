@@ -20,7 +20,6 @@ public class PessoaRepositorio implements InterfaceDao {
     private static ArrayList<Pessoa> pessoas = new ArrayList<>();
     private static HashMap<Integer, Pessoa> hashinicial = new HashMap<>();
 
-
     @Override
     public void add(Object obj) {
         Pessoa p = (Pessoa) obj;
@@ -56,6 +55,13 @@ public class PessoaRepositorio implements InterfaceDao {
     @Override
     public ArrayList<Object> get(String text, String param) {
         ArrayList<Object> newList = new ArrayList<>();
+        if (text.isBlank()) {
+            Object[] objectArray = pessoas.toArray();
+            for (int i = 0; i < objectArray.length; i++) {
+                newList.add(objectArray[i]);
+            }
+            return newList;
+        }
         for (Pessoa p : pessoas) {
             switch (param) {
                 case "Nome" -> {

@@ -69,7 +69,14 @@ public class TarefaRepositorio implements InterfaceDao {
 
     @Override
     public ArrayList<Object> get(String text, String param) {
-        ArrayList<Object> newList = new ArrayList<Object>();
+        ArrayList<Object> newList = new ArrayList<>();
+        if (text.isBlank()) {
+            Object[] objectArray = tarefas.toArray();
+            for (int i = 0; i < objectArray.length; i++) {
+                newList.add(objectArray[i]);
+            }
+            return newList;
+        }
         for (Tarefa t : tarefas) {
             switch (param) {
                 case "Nome" -> {
@@ -90,7 +97,7 @@ public class TarefaRepositorio implements InterfaceDao {
                     }
                 }
                 case "Lista Nome" -> {
-                    if (t.getLista().getNome().equalsIgnoreCase(text)) {
+                    if (t.getLista().getNome().contains(text)) {
                         newList.add(t);
                     }
                 }
@@ -100,7 +107,8 @@ public class TarefaRepositorio implements InterfaceDao {
                     }
                 }
                 case "Pessoa Nome" -> {
-                    if (t.getLista().getPessoa().getNome().equalsIgnoreCase(text)) {
+                    System.out.println("Tá chegando");
+                    if (t.getLista().getPessoa().getNome().contains(text)) {
                         newList.add(t);
                     }
                 }
@@ -120,7 +128,8 @@ public class TarefaRepositorio implements InterfaceDao {
     }
 
     @Override
-    public Object get(int id) {
+    public Object get(int id
+    ) {
         for (Tarefa t : tarefas) {
             if (t.getId() == id) {
                 return t;

@@ -71,7 +71,14 @@ public class ListaDeTarefaRepositorio implements InterfaceDao {
 
     @Override
     public ArrayList<Object> get(String text, String param) {
-        ArrayList<Object> newList = new ArrayList<Object>();
+        ArrayList<Object> newList = new ArrayList<>();
+        if (text.isBlank()) {
+            Object[] objectArray = listadetarefas.toArray();
+            for (int i = 0; i < objectArray.length; i++) {
+                newList.add(objectArray[i]);
+            }
+            return newList;
+        }
         for (ListaDeTarefa ltarefa : listadetarefas) {
             switch (param) {
                 case "Nome":
@@ -104,7 +111,8 @@ public class ListaDeTarefaRepositorio implements InterfaceDao {
     }
 
     @Override
-    public Object get(int id) {
+    public Object get(int id
+    ) {
         for (ListaDeTarefa ltarefa : listadetarefas) {
             if (ltarefa.getId() == id) {
                 return ltarefa;

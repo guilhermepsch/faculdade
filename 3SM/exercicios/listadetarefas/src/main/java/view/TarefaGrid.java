@@ -69,7 +69,7 @@ public class TarefaGrid extends BaseGrid {
         DefaultTableModel model = (DefaultTableModel) jtContent.getModel();
         for (Tarefa t : tarefas) {
             model.addRow(new Object[]{
-                t.getId(), t.getNome(), t.getStatus(), t.getLista().getId(),
+                t.getId(), t.getNome(), (t.getStatus() == true ? "Completo" : "Incompleto"), t.getLista().getId(),
                 t.getLista().getNome(), t.getLista().getPessoa().getId(),
                 t.getLista().getPessoa().getNome()
             });
@@ -98,7 +98,7 @@ public class TarefaGrid extends BaseGrid {
         for (Object o : list) {
             Tarefa t = (Tarefa) o;
             model.addRow(new Object[]{
-                t.getId(), t.getNome(), t.getStatus(), t.getLista().getId(),
+                t.getId(), t.getNome(), (t.getStatus() == true ? "Completo" : "Incompleto"), t.getLista().getId(),
                 t.getLista().getNome(), t.getLista().getPessoa().getId(),
                 t.getLista().getPessoa().getNome()
             });
