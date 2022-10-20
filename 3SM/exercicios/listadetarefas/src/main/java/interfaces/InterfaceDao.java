@@ -5,6 +5,7 @@
 package interfaces;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -17,4 +18,5 @@ public interface InterfaceDao {
     public ArrayList<?> get();
     public ArrayList<Object> get(String text, String param);
     public Object get(int id);
+    public Map<Integer, ?> getHashInicial();
 }

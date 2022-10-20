@@ -6,6 +6,8 @@ package dao;
 
 import interfaces.InterfaceDao;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import model.ListaDeTarefa;
 import model.Pessoa;
 
@@ -17,12 +19,14 @@ public class ListaDeTarefaRepositorio implements InterfaceDao {
 
     private static int currentId = 1;
     private static ArrayList<ListaDeTarefa> listadetarefas = new ArrayList<>();
+    private static HashMap<Integer, ListaDeTarefa> hashinicial = new HashMap<>();
 
     @Override
     public void add(Object obj) {
         ListaDeTarefa ltafefa = (ListaDeTarefa) obj;
         if (ltafefa.getId() == 0) {
             ltafefa.setId(currentId);
+            hashinicial.put(currentId, ltafefa);
             currentId++;
             listadetarefas.add(ltafefa);
         } else {
@@ -116,5 +120,10 @@ public class ListaDeTarefaRepositorio implements InterfaceDao {
             }
         }
         return null;
+    }
+
+    @Override
+    public Map<Integer, ListaDeTarefa> getHashInicial() {
+        return hashinicial;
     }
 }

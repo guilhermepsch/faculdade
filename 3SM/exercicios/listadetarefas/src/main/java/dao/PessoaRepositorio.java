@@ -6,6 +6,8 @@ package dao;
 
 import interfaces.InterfaceDao;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import model.Pessoa;
 
 /**
@@ -16,12 +18,15 @@ public class PessoaRepositorio implements InterfaceDao {
 
     private static int currentId = 1;
     private static ArrayList<Pessoa> pessoas = new ArrayList<>();
+    private static HashMap<Integer, Pessoa> hashinicial = new HashMap<>();
+
 
     @Override
     public void add(Object obj) {
         Pessoa p = (Pessoa) obj;
         if (p.getId() == 0) {
             p.setId(currentId);
+            hashinicial.put(currentId, p);
             currentId++;
             pessoas.add(p);
         } else {
@@ -106,6 +111,11 @@ public class PessoaRepositorio implements InterfaceDao {
             }
         }
         return null;
+    }
+
+    @Override
+    public Map<Integer, Pessoa> getHashInicial() {
+        return hashinicial;
     }
 
 }

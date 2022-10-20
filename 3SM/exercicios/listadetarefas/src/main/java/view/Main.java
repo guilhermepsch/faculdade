@@ -34,12 +34,11 @@ public class Main extends javax.swing.JFrame {
         jpGeral = new javax.swing.JPanel();
         jpGeralTitles = new javax.swing.JPanel();
         jlGeralTitle = new javax.swing.JLabel();
-        jpEspecifico = new javax.swing.JPanel();
-        jpSpecificOptions = new javax.swing.JPanel();
-        jlGeralTitle1 = new javax.swing.JLabel();
+        jlOutrosTitle = new javax.swing.JLabel();
         jbPessoas = new javax.swing.JButton();
         jbListas = new javax.swing.JButton();
         jbTarefa = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("HOUSR");
@@ -54,52 +53,28 @@ public class Main extends javax.swing.JFrame {
         jlGeralTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlGeralTitle.setText("Geral");
 
+        jlOutrosTitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlOutrosTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlOutrosTitle.setText("Outros");
+
         javax.swing.GroupLayout jpGeralTitlesLayout = new javax.swing.GroupLayout(jpGeralTitles);
         jpGeralTitles.setLayout(jpGeralTitlesLayout);
         jpGeralTitlesLayout.setHorizontalGroup(
             jpGeralTitlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlGeralTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jpGeralTitlesLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jlGeralTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
+                .addComponent(jlOutrosTitle)
+                .addGap(79, 79, 79))
         );
         jpGeralTitlesLayout.setVerticalGroup(
             jpGeralTitlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpGeralTitlesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jlGeralTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jpGeralLayout = new javax.swing.GroupLayout(jpGeral);
-        jpGeral.setLayout(jpGeralLayout);
-        jpGeralLayout.setHorizontalGroup(
-            jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpGeralTitles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jpGeralLayout.setVerticalGroup(
-            jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpGeralLayout.createSequentialGroup()
-                .addComponent(jpGeralTitles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 97, Short.MAX_VALUE))
-        );
-
-        jpEspecifico.setPreferredSize(new java.awt.Dimension(500, 300));
-
-        jpSpecificOptions.setBackground(new java.awt.Color(102, 102, 102));
-
-        jlGeralTitle1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jlGeralTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlGeralTitle1.setText("Específicos");
-
-        javax.swing.GroupLayout jpSpecificOptionsLayout = new javax.swing.GroupLayout(jpSpecificOptions);
-        jpSpecificOptions.setLayout(jpSpecificOptionsLayout);
-        jpSpecificOptionsLayout.setHorizontalGroup(
-            jpSpecificOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlGeralTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
-        );
-        jpSpecificOptionsLayout.setVerticalGroup(
-            jpSpecificOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpSpecificOptionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jlGeralTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jpGeralTitlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlGeralTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlOutrosTitle))
                 .addContainerGap())
         );
 
@@ -124,45 +99,52 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jpEspecificoLayout = new javax.swing.GroupLayout(jpEspecifico);
-        jpEspecifico.setLayout(jpEspecificoLayout);
-        jpEspecificoLayout.setHorizontalGroup(
-            jpEspecificoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpSpecificOptions, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jpEspecificoLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jbPessoas)
-                .addGap(93, 93, 93)
-                .addComponent(jbListas)
+        jButton1.setText("Registros Originais");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpGeralLayout = new javax.swing.GroupLayout(jpGeral);
+        jpGeral.setLayout(jpGeralLayout);
+        jpGeralLayout.setHorizontalGroup(
+            jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpGeralTitles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jpGeralLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jbTarefa, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(jbListas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbPessoas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbTarefa)
-                .addGap(48, 48, 48))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
-        jpEspecificoLayout.setVerticalGroup(
-            jpEspecificoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpEspecificoLayout.createSequentialGroup()
-                .addComponent(jpSpecificOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(jpEspecificoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbPessoas)
-                    .addComponent(jbListas)
-                    .addComponent(jbTarefa))
-                .addContainerGap(43, Short.MAX_VALUE))
+        jpGeralLayout.setVerticalGroup(
+            jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpGeralLayout.createSequentialGroup()
+                .addComponent(jpGeralTitles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbListas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpEspecifico, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
             .addComponent(jpGeral, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jpGeral, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpEspecifico, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jpGeral, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
         );
 
         pack();
@@ -185,6 +167,12 @@ public class Main extends javax.swing.JFrame {
         tela.setVisible(true);
         this.setEnabled(false);
     }//GEN-LAST:event_jbTarefaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        SystemLogs tela = new SystemLogs(this);
+        tela.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,14 +210,13 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jbListas;
     private javax.swing.JButton jbPessoas;
     private javax.swing.JButton jbTarefa;
     private javax.swing.JLabel jlGeralTitle;
-    private javax.swing.JLabel jlGeralTitle1;
-    private javax.swing.JPanel jpEspecifico;
+    private javax.swing.JLabel jlOutrosTitle;
     private javax.swing.JPanel jpGeral;
     private javax.swing.JPanel jpGeralTitles;
-    private javax.swing.JPanel jpSpecificOptions;
     // End of variables declaration//GEN-END:variables
 }
