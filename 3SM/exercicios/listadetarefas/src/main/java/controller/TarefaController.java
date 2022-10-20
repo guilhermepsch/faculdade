@@ -5,19 +5,19 @@
 package controller;
 
 import dao.ListaDeTarefaRepositorio;
-import dao.PessoaRepositorio;
+import dao.TarefaRepositorio;
 import interfaces.InterfaceController;
 import java.util.ArrayList;
 import model.ListaDeTarefa;
-import model.Pessoa;
+import model.Tarefa;
 
 /**
  *
  * @author Zeke
  */
-public class ListaDeTarefaController implements InterfaceController {
+public class TarefaController implements InterfaceController {
 
-    private ListaDeTarefaRepositorio listaTarefaRepo = new ListaDeTarefaRepositorio();
+    private TarefaRepositorio tarefaRepo = new TarefaRepositorio();
 
     @Override
     public void save(Object... args) throws Exception {
@@ -32,38 +32,39 @@ public class ListaDeTarefaController implements InterfaceController {
     @Override
     public void add(Object[] args) throws Exception {
         args[0] = 0;
-        ListaDeTarefa ltarefa = validate(args);
-        listaTarefaRepo.add(ltarefa);
+        Tarefa t = validate(args);
+        tarefaRepo.add(t);
     }
 
     @Override
     public void update(Object[] args) throws Exception {
-        ListaDeTarefa ltarefa = validate(args);
-        listaTarefaRepo.add(ltarefa);
+        Tarefa t = validate(args);
+        tarefaRepo.add(t);
     }
 
     @Override
     public void remove(int id) {
-        listaTarefaRepo.remove(id);
+        tarefaRepo.remove(id);
     }
 
     @Override
-    public ArrayList<ListaDeTarefa> get() {
-        return listaTarefaRepo.get();
+    public ArrayList<Tarefa> get() {
+        return tarefaRepo.get();
     }
 
     @Override
     public ArrayList<Object> get(String text, String param) {
-        return listaTarefaRepo.get(text, param);
+        return tarefaRepo.get(text, param);
     }
 
-    public ListaDeTarefa validate(Object[] args) throws Exception {
+    public Tarefa validate(Object[] args) throws Exception {
         int id = (int) args[0];
         String nome = (String) args[1];
-        if (((String) args[2]).equals("")){
-            throw new Exception ("É necessário informar uma pessoa");
+        boolean status = (((String) args[3]).equals("Completo"));
+        if (((String) args[3]).equals("")) {
+            throw new Exception("É necessário informar uma lista");
         }
-        Pessoa pessoa = (Pessoa) (new PessoaRepositorio()).getByIndexNome((String) args[2]);
+        ListaDeTarefa ltarefa = (ListaDeTarefa) (new ListaDeTarefaRepositorio()).getByIndexNome((String) args[3]);
 
         if (id < 0) {
             throw new Exception("Id inválido");
@@ -71,12 +72,13 @@ public class ListaDeTarefaController implements InterfaceController {
         if (nome.isBlank()) {
             throw new Exception("É necessário preencher o nome.");
         }
-        return new ListaDeTarefa(id, nome, pessoa);
+
+        return new Tarefa(id, nome, status, ltarefa);
     }
 
     @Override
     public Object get(int id) {
-        return listaTarefaRepo.get(id);
+        return tarefaRepo.get(id);
     }
 
 }

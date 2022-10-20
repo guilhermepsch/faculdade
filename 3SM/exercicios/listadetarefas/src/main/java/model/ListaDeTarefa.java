@@ -5,7 +5,6 @@
 package model;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,7 +16,6 @@ public class ListaDeTarefa {
     private int id;
     private String nome;
     private Pessoa pessoa;
-    private List<Tarefa> tarefas;
 
     public ListaDeTarefa(int id, String nome, Pessoa pessoa) {
         this.id = id;
@@ -49,21 +47,13 @@ public class ListaDeTarefa {
         this.pessoa = pessoa;
     }
 
-    public List<Tarefa> getTarefas() {
-        return tarefas;
-    }
-
-    public void addTarefa(Tarefa tarefa) {
-        this.tarefas.add(tarefa);
-    }
-
     @Override
     public String toString() {
-        return "ListaDeTarefa{" + "id=" + id + ", nome=" + nome + ", tarefas=" + tarefas + '}';
+        return "ListaDeTarefa{" + "id=" + id + ", nome=" + nome + '}';
     }
     
     public static Set<String> getHashAttributeIds(){
-        Set<String> atts = new HashSet<String>();
+        Set<String> atts = new HashSet<>();
         atts.add("Id");
         atts.add("Nome");
         atts.add("Pessoa Id");

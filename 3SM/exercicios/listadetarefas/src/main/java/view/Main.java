@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  * @author guilh
  */
 public class Main extends javax.swing.JFrame {
-        
+
     /**
      * Creates new form Main
      */
@@ -44,7 +44,6 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("HOUSR");
         setBackground(new java.awt.Color(153, 255, 153));
-        setPreferredSize(new java.awt.Dimension(500, 300));
         setResizable(false);
 
         jpGeral.setPreferredSize(new java.awt.Dimension(500, 300));
@@ -119,6 +118,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jbTarefa.setText("Tarefas");
+        jbTarefa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbTarefaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpEspecificoLayout = new javax.swing.GroupLayout(jpEspecifico);
         jpEspecifico.setLayout(jpEspecificoLayout);
@@ -175,6 +179,12 @@ public class Main extends javax.swing.JFrame {
         tela.setVisible(true);
         this.setEnabled(false);
     }//GEN-LAST:event_jbPessoasActionPerformed
+
+    private void jbTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTarefaActionPerformed
+        TarefaGrid tela = new TarefaGrid(this);
+        tela.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_jbTarefaActionPerformed
 
     /**
      * @param args the command line arguments

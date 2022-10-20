@@ -4,9 +4,7 @@
  */
 package model;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -20,7 +18,6 @@ public class Pessoa implements Comparable<Pessoa>{
     private int idade;
     private String cpf;
     private String celular;
-    private List<ListaDeTarefa> listas;
 
     public Pessoa(int id, String nome, int idade, String cpf, String celular) {
         this.id = id;
@@ -28,7 +25,6 @@ public class Pessoa implements Comparable<Pessoa>{
         this.idade = idade;
         this.cpf = cpf;
         this.celular = celular;
-        this.listas = new ArrayList<>();
     }
 
     public int getId() {
@@ -71,14 +67,6 @@ public class Pessoa implements Comparable<Pessoa>{
         this.celular = celular;
     }
 
-    public List<ListaDeTarefa> getListas() {
-        return listas;
-    }
-
-    public void addLista(ListaDeTarefa lista){
-        this.listas.add(lista);
-    }
-    
     @Override
     public int compareTo(Pessoa p) {
             return p.getNome().compareTo(this.getNome());
@@ -86,7 +74,7 @@ public class Pessoa implements Comparable<Pessoa>{
 
     @Override
     public String toString() {
-        return "Pessoa{" + "id=" + id + ", nome=" + nome + ", idade=" + idade + ", cpf=" + cpf + ", celular=" + celular + ", listas=" + listas + '}';
+        return "Pessoa{" + "id=" + id + ", nome=" + nome + ", idade=" + idade + ", cpf=" + cpf + ", celular=" + celular +'}';
     }
     
     public static Set<String> getHashAttributeIds(){

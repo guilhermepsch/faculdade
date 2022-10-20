@@ -91,4 +91,12 @@ private static int currentId = 1;
         return null;
     }
     
+        public ListaDeTarefa getByIndexNome(String check) {
+        for (ListaDeTarefa ltarefa : listadetarefas) {
+            if (check.equals(ltarefa.getId() + " - " + ltarefa.getNome() + "(" + ltarefa.getPessoa().getId() +" - " + ltarefa.getPessoa().getNome() +")")) {
+                return ltarefa;
+            }
+        }
+        return null;
+    }
 }
