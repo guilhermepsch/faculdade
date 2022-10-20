@@ -7,6 +7,7 @@ package dao;
 import interfaces.InterfaceDao;
 import java.util.ArrayList;
 import model.ListaDeTarefa;
+import model.Pessoa;
 
 /**
  *
@@ -14,7 +15,7 @@ import model.ListaDeTarefa;
  */
 public class ListaDeTarefaRepositorio implements InterfaceDao {
 
-private static int currentId = 1;
+    private static int currentId = 1;
     private static ArrayList<ListaDeTarefa> listadetarefas = new ArrayList<>();
 
     @Override
@@ -44,6 +45,23 @@ private static int currentId = 1;
         }
         if (seraRemovido != null) {
             listadetarefas.remove(seraRemovido);
+            (new TarefaRepositorio()).remove(seraRemovido);
+        }
+    }
+
+    public void remove(Pessoa p) {
+        ArrayList<ListaDeTarefa> seraRemovido = new ArrayList();
+        for (ListaDeTarefa ltarefa : listadetarefas) {
+            if (ltarefa.getPessoa().getId() == p.getId()) {
+                seraRemovido.add(ltarefa);
+            }
+        }
+        if (seraRemovido.isEmpty()) {
+            return;
+        }
+        for (ListaDeTarefa ltarefa : seraRemovido) {
+            listadetarefas.remove(ltarefa);
+            (new TarefaRepositorio()).remove(ltarefa);
         }
     }
 
@@ -63,7 +81,7 @@ private static int currentId = 1;
                     }
                     break;
                 case "Pessoa Id":
-                    if (ltarefa.getPessoa().getId() == Integer.parseInt(text)){
+                    if (ltarefa.getPessoa().getId() == Integer.parseInt(text)) {
                         newList.add(ltarefa);
                     }
                 default:
@@ -90,10 +108,10 @@ private static int currentId = 1;
         }
         return null;
     }
-    
-        public ListaDeTarefa getByIndexNome(String check) {
+
+    public ListaDeTarefa getByIndexNome(String check) {
         for (ListaDeTarefa ltarefa : listadetarefas) {
-            if (check.equals(ltarefa.getId() + " - " + ltarefa.getNome() + "(" + ltarefa.getPessoa().getId() +" - " + ltarefa.getPessoa().getNome() +")")) {
+            if (check.equals(ltarefa.getId() + " - " + ltarefa.getNome() + "(" + ltarefa.getPessoa().getId() + " - " + ltarefa.getPessoa().getNome() + ")")) {
                 return ltarefa;
             }
         }

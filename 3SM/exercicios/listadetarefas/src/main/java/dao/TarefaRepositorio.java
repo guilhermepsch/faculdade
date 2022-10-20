@@ -6,6 +6,7 @@ package dao;
 
 import interfaces.InterfaceDao;
 import java.util.ArrayList;
+import model.ListaDeTarefa;
 import model.Tarefa;
 
 /**
@@ -44,6 +45,21 @@ public class TarefaRepositorio implements InterfaceDao {
         }
         if (seraRemovido != null) {
             tarefas.remove(seraRemovido);
+        }
+    }
+
+    public void remove(ListaDeTarefa ltarefa) {
+        ArrayList<Tarefa> seraRemovido = new ArrayList();
+        for (Tarefa t : tarefas) {
+            if (t.getLista().getId() == ltarefa.getId()) {
+                seraRemovido.add(t);
+            }
+        }
+        if (seraRemovido.isEmpty()) {
+            return;
+        }
+        for (Tarefa t : seraRemovido) {
+            tarefas.remove(t);
         }
     }
 

@@ -43,6 +43,7 @@ public class PessoaRepositorio implements InterfaceDao {
             }
         }
         if (seraRemovido != null) {
+            (new ListaDeTarefaRepositorio()).remove(seraRemovido);
             pessoas.remove(seraRemovido);
         }
     }
