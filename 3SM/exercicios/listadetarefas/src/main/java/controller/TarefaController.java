@@ -60,7 +60,7 @@ public class TarefaController implements InterfaceController {
     public Tarefa validate(Object[] args) throws Exception {
         int id = (int) args[0];
         String nome = (String) args[1];
-        boolean status = (((String) args[3]).equals("Completo"));
+        boolean status = (((String) args[2]).equals("Completo"));
         if (((String) args[3]).equals("")) {
             throw new Exception("É necessário informar uma lista");
         }

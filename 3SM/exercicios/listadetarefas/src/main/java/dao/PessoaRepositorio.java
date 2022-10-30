@@ -6,6 +6,8 @@ package dao;
 
 import interfaces.InterfaceDao;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import model.Pessoa;
@@ -97,6 +99,7 @@ public class PessoaRepositorio implements InterfaceDao {
 
     @Override
     public ArrayList<Pessoa> get() {
+        Collections.sort(pessoas);
         return pessoas;
     }
 

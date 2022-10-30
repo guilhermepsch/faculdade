@@ -6,6 +6,7 @@ package dao;
 
 import interfaces.InterfaceDao;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import model.ListaDeTarefa;
@@ -107,6 +108,12 @@ public class ListaDeTarefaRepositorio implements InterfaceDao {
 
     @Override
     public ArrayList<ListaDeTarefa> get() {
+        listadetarefas.sort(new Comparator<ListaDeTarefa>() {
+            @Override
+            public int compare(ListaDeTarefa tl1, ListaDeTarefa tl2) {
+                return Integer.compare(tl1.getId(), tl2.getId());
+            }
+        });
         return listadetarefas;
     }
 

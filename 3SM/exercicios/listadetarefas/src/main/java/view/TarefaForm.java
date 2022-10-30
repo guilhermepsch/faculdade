@@ -71,6 +71,7 @@ public class TarefaForm extends BaseForm {
         jtfId.setText(String.valueOf(t.getId()));
         jtfNome.setText(String.valueOf(t.getNome()));
         jcbListas.setSelectedItem((String) (t.getLista().getId() + " - " + t.getLista().getNome() + "(" + t.getLista().getPessoa().getId() + " - " + t.getLista().getPessoa().getNome() + ")"));
+        jcbStatus.setSelectedItem(t.getStatus() == true ? "Completo" : "Incompleto");
     }
 
     private void loadComboBox() {
