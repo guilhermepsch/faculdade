@@ -6,6 +6,7 @@ package controller;
 
 import dao.ListaDeTarefaRepositorio;
 import dao.PessoaRepositorio;
+import exception.ListaDeTarefaFormException;
 import interfaces.InterfaceController;
 import java.util.ArrayList;
 import model.ListaDeTarefa;
@@ -61,15 +62,15 @@ public class ListaDeTarefaController implements InterfaceController {
         int id = (int) args[0];
         String nome = (String) args[1];
         if (((String) args[2]).equals("")){
-            throw new Exception ("É necessário informar uma pessoa");
+            throw new ListaDeTarefaFormException ("É necessário informar uma pessoa");
         }
         Pessoa pessoa = (Pessoa) (new PessoaRepositorio()).getByIndexNome((String) args[2]);
 
         if (id < 0) {
-            throw new Exception("Id inválido");
+            throw new ListaDeTarefaFormException("Id inválido");
         }
         if (nome.isBlank()) {
-            throw new Exception("É necessário preencher o nome.");
+            throw new ListaDeTarefaFormException("É necessário preencher o nome.");
         }
         return new ListaDeTarefa(id, nome, pessoa);
     }

@@ -5,6 +5,7 @@
 package controller;
 
 import dao.PessoaRepositorio;
+import exception.PessoaFormException;
 import interfaces.InterfaceController;
 import java.util.ArrayList;
 import model.Pessoa;
@@ -63,23 +64,23 @@ public class PessoaController implements InterfaceController {
         String celular = (String) args[4];
 
         if (id < 0) {
-            throw new Exception("Id inválido");
+            throw new PessoaFormException("Id inválido");
         }
         if (nome.isBlank()) {
-            throw new Exception("É necessário preencher o nome.");
+            throw new PessoaFormException("É necessário preencher o nome.");
         }
         if (args[2].equals("")) {
-            throw new Exception("É necessário preencher a idade");
+            throw new PessoaFormException("É necessário preencher a idade");
         }
         idade = Integer.parseInt((String) args[2]);
         if (idade < 0) {
-            throw new Exception("Idade inválida");
+            throw new PessoaFormException("Idade inválida");
         }
         if (cpf.isBlank()) {
-            throw new Exception("É necessário preencher o cpf.");
+            throw new PessoaFormException("É necessário preencher o cpf.");
         }
         if (celular.isBlank()) {
-            throw new Exception("É necessário preencher o celular.");
+            throw new PessoaFormException("É necessário preencher o celular.");
         }
 
         return new Pessoa(id, nome, idade, cpf, celular);
